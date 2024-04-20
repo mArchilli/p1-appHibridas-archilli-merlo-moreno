@@ -5,7 +5,7 @@ import pacientes_routes from "./routes/pacientes_routes.js"
 import sesiones_routes from "./routes/sesiones_routes.js"
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/psicare")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("conectado a DB)"))
   .catch(() => console.log("error al conectar"))
 

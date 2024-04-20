@@ -10,7 +10,7 @@ const sesionSchema = new mongoose.Schema({
         required: true
     },
     horario:{
-        type: Date,
+        type: String,
         required: true
     },
     paciente:{
