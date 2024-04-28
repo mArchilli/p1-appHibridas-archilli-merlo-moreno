@@ -1,5 +1,6 @@
 import express from "express"
 import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente } from "../controllers/pacientes_controller.js";
+import Joi from "joi";
 
 const ruta = express.Router();
 
