@@ -5,6 +5,11 @@ async function getSesiones(){
     return sesiones;
 }
 
+async function getSesionById(id){
+    let sesion = await Sesion.findById(id);
+    return sesion;
+}
+
 async function deleteSesion(id){
     let sesion = await Sesion.findByIdAndDelete(id);
     return sesion;
@@ -38,4 +43,4 @@ async function updateSesion(id, body){
     return sesionActualizado;
 }
 
-export {getSesiones, createSesion, updateSesion, deleteSesion}
+export {getSesiones, getSesionById, createSesion, updateSesion, deleteSesion}

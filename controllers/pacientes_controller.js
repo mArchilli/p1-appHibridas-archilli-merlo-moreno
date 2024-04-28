@@ -5,6 +5,11 @@ async function getPacientes(){
     return pacientes;
 }
 
+async function getPacienteById(id){
+    let paciente = await Paciente.findById(id);
+    return paciente;
+}
+
 async function deletePaciente(id){
     let paciente = await Paciente.findByIdAndDelete(id);
     return paciente;
@@ -52,4 +57,4 @@ async function updatePaciente(id, body){
     return pacienteActualizado;
 }
 
-export {getPacientes, createPaciente, updatePaciente, deletePaciente}
+export {getPacientes, getPacienteById, createPaciente, updatePaciente, deletePaciente}
