@@ -12,6 +12,7 @@ mongoose
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(express.static("public"))
 app.use ("/pacientes", pacientes_routes)
 app.use ("/sesiones", sesiones_routes)
 
