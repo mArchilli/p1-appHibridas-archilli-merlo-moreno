@@ -1,3 +1,22 @@
+## Correr proyecto
+npm init --y
+
+## Configuraciones
+package.json
+    "type": "module",
+    "start": "nodemon index.js"
+
+npm i express
+npm i nodemon
+
+## Variables de entorno
+npm dotenv
+
+## Para trabajar con mongoDB
+npm i mongoose
+
+----------------------------------
+
 ## POSTMAN
 Consultar pacientes, sesiones
 GET localhost:3000/pacientes
