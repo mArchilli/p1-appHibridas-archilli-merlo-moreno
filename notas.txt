@@ -1,0 +1,11 @@
+## POSTMAN
+Consultar pacientes, sesiones
+GET localhost:3000/pacientes
+GET localhost:3000/sesiones
+
+Crear paciente
+POST localhost:3000/pacientes
+POST localhost:3000/sesiones
+
+## TO DO:
+- Función para actualizar pacientes no funciona.
