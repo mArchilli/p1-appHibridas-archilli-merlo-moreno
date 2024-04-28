@@ -18,12 +18,20 @@ ruta.post("/", (req, res) => {
     .catch((error) => { res.status(404).json(error)})
 })
 
-ruta.put("/:dni", (req, res) => {
+// ruta.put("/:dni", (req, res) => {
+//     let body = req.body;
+//     let resultado = updatePaciente(body, req.params.dni);
+//     resultado
+//     .then((paciente) => { res.status(201).json(paciente)})
+//     .catch((error) => { res.status(404).json(error)})
+// })
+
+ruta.put("/:id", (req, res) => {
     let body = req.body;
-    let resultado = updatePaciente(body, req.params.dni);
+    let resultado = updatePaciente(req.params.id, body);
     resultado
-    .then((paciente) => { res.status(201).json(paciente)})
-    .catch((error) => { res.status(404).json(error)})
+        .then((user) => { res.status(201).json(user) })
+        .catch((error) => { res.status(400).json(error) })
 })
 
 

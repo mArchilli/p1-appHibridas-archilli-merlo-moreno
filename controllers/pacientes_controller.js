@@ -25,8 +25,31 @@ async function createPaciente(body){
     return await paciente.save()
 }
 
-async function updatePaciente(body, dni){
-    let paciente = await Paciente.updateOne({"dni":dni}, {
+// async function updatePaciente(body, dni){
+//     let paciente = await Paciente.updateOne({"dni":dni}, {
+//         $set:{
+//             nombre: body.nombre,
+//             correo: body.correo,
+//             genero: body.genero,
+//             dni: body.dni,
+//             telefono: body.telefono,
+//             fecNac: body.fecNac,
+//             cobertura_medica: body.cobertura_medica,
+//             direccion: body.direccion,
+//             estado_civil: body.estado_civil,
+//             educacion: body.educacion,
+//             profesion: body.profesion,
+//             cuil: body.cuil,
+//             diagnostico: body.diagnostico,
+//             representate: body.representante
+//         }
+//     })
+    
+//     return paciente;
+// }
+
+async function updatePaciente(id, body){
+    let pacienteActualizado = await Paciente.findByIdAndUpdate(id, {
         $set:{
             nombre: body.nombre,
             correo: body.correo,
@@ -43,9 +66,8 @@ async function updatePaciente(body, dni){
             diagnostico: body.diagnostico,
             representate: body.representante
         }
-    })
-    
-    return paciente;
+    }, {new: true})
+    return pacienteActualizado;
 }
 
 export {getPacientes, createPaciente, updatePaciente}

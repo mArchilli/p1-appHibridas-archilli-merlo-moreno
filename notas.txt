@@ -1,5 +1,8 @@
-## Correr proyecto
+## Inicializar package.json
 npm init --y
+
+## Correr proyecto
+npm start
 
 ## Configuraciones
 package.json
