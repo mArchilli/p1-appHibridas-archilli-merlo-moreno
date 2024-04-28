@@ -18,4 +18,19 @@ async function createSesion(body){
     return await sesion.save()
 }
 
-export {getSesiones, createSesion}
+async function updateSesion(id, body){
+    let sesionActualizado = await Sesion.findByIdAndUpdate(id, {
+        $set:{
+            fecha: body.fecha,
+            horario: body.horario,
+            paciente: body.paciente,
+            profesional: body.profesional,
+            duracion: body.duracion,
+            modalidad: body.modalidad,
+            ubicacion: body.ubicacion
+        }
+    }, {new: true})
+    return sesionActualizado;
+}
+
+export {getSesiones, createSesion, updateSesion}
