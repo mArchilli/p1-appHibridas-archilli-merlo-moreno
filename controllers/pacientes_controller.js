@@ -26,7 +26,7 @@ async function createPaciente(body){
 }
 
 async function updatePaciente(body, dni){
-    let paciente = new Paciente.updateOne({"dni":dni}, {
+    let paciente = await Paciente.updateOne({"dni":dni}, {
         $set:{
             nombre: body.nombre,
             correo: body.correo,

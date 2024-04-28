@@ -26,5 +26,8 @@ Crear paciente
 POST localhost:3000/pacientes
 POST localhost:3000/sesiones
 
+Actualizar paciente
+PUT localhost:3000/pacientes/dni
+
 ## TO DO:
-- Función para actualizar pacientes no funciona.
+- Función para actualizar pacientes no funciona. [✓]

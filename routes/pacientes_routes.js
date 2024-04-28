@@ -26,4 +26,5 @@ ruta.put("/:dni", (req, res) => {
     .catch((error) => { res.status(404).json(error)})
 })
 
+
 export default ruta;
