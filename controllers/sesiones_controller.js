@@ -5,6 +5,11 @@ async function getSesiones(){
     return sesiones;
 }
 
+async function deleteSesion(id){
+    let sesion = await Sesion.findByIdAndDelete(id);
+    return sesion;
+}
+
 async function createSesion(body){
     let sesion = new Sesion({
     fecha: body.fecha,
@@ -33,4 +38,4 @@ async function updateSesion(id, body){
     return sesionActualizado;
 }
 
-export {getSesiones, createSesion, updateSesion}
+export {getSesiones, createSesion, updateSesion, deleteSesion}

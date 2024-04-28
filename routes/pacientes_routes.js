@@ -1,5 +1,5 @@
 import express from "express"
-import { getPacientes, createPaciente, updatePaciente } from "../controllers/pacientes_controller.js";
+import { getPacientes, createPaciente, updatePaciente, deletePaciente } from "../controllers/pacientes_controller.js";
 
 const ruta = express.Router();
 
@@ -21,6 +21,13 @@ ruta.post("/", (req, res) => {
 ruta.put("/:id", (req, res) => {
     let body = req.body;
     let resultado = updatePaciente(req.params.id, body);
+    resultado
+        .then((paciente) => { res.status(201).json(paciente) })
+        .catch((error) => { res.status(400).json(error) })
+})
+
+ruta.delete("/:id", (req, res) => {
+    let resultado = deletePaciente(req.params.id);
     resultado
         .then((paciente) => { res.status(201).json(paciente) })
         .catch((error) => { res.status(400).json(error) })
