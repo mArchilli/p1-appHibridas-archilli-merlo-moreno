@@ -10,6 +10,17 @@ async function getPacienteById(id){
     return paciente;
 }
 
+async function getPacienteByName(nombre){
+    let pacientes = await Paciente.find();
+    let pacientesPorNombre = [];
+    for (const paciente of pacientes) {
+        if(paciente.nombre.includes(nombre)){
+            pacientesPorNombre.push(paciente)
+        }
+    }
+    return pacientesPorNombre;
+}
+
 async function deletePaciente(id){
     let paciente = await Paciente.findByIdAndDelete(id);
     return paciente;
@@ -57,4 +68,4 @@ async function updatePaciente(id, body){
     return pacienteActualizado;
 }
 
-export {getPacientes, getPacienteById, createPaciente, updatePaciente, deletePaciente}
+export {getPacientes, getPacienteById, getPacienteByName,createPaciente, updatePaciente, deletePaciente}
