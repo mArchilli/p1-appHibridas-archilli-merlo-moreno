@@ -56,7 +56,7 @@ async function createPaciente(body){
     profesion: body.profesion,
     cuil: body.cuil,
     diagnostico: body.diagnostico,
-    representate: body.representante
+    representante: body.representante
    })
     return await paciente.save()
 }
@@ -77,7 +77,7 @@ async function updatePaciente(id, body){
             profesion: body.profesion,
             cuil: body.cuil,
             diagnostico: body.diagnostico,
-            representate: body.representante
+            representante: body.representante
         }
     }, {new: true})
     return pacienteActualizado;
