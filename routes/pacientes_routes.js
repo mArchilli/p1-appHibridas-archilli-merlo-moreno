@@ -1,10 +1,31 @@
 import express from "express"
-import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente } from "../controllers/pacientes_controller.js";
+import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados } from "../controllers/pacientes_controller.js";
 
 const ruta = express.Router();
 
 ruta.get("/", (req, res) => {
     let resultado = getPacientes();
+    resultado
+    .then((pacientes) => { res.status(200).json(pacientes)})
+    .catch((error) => { res.status(404).json(error)})
+})
+
+ruta.get("/nombre/:nombre", (req, res) => {
+    let resultado = getPacienteByName(req.params.nombre);
+    resultado
+    .then((pacientes) => { res.status(200).json(pacientes)})
+    .catch((error) => { res.status(404).json(error)})
+})
+
+ruta.get("/ordenamiento", (req, res) => {
+    let resultado = getPacientesOrdenados();
+    resultado
+    .then((pacientes) => { res.status(200).json(pacientes)})
+    .catch((error) => { res.status(404).json(error)})
+})
+
+ruta.get("/paginacion", (req, res) => {
+    let resultado = getPacientesPaginados();
     resultado
     .then((pacientes) => { res.status(200).json(pacientes)})
     .catch((error) => { res.status(404).json(error)})
@@ -17,18 +38,11 @@ ruta.get("/:id", (req, res) => {
     .catch((error) => { res.status(404).json(error)})
 })
 
-ruta.get("/:nombre", (req, res) => {
-    let resultado = getPacienteByName(req.params.nombre);
-    resultado
-    .then((pacientes) => { res.status(200).json(pacientes)})
-    .catch((error) => { res.status(404).json(error)})
-})
-
 ruta.post("/", (req, res) => {
     let body = req.body;
     let resultado = createPaciente(body);
     resultado
-    .then((paciente) => { res.status(201).json(paciente)})
+    .then((paciente) => { res.status(200).json(paciente)})
     .catch((error) => { res.status(404).json(error)})
 })
 
@@ -46,6 +60,5 @@ ruta.delete("/:id", (req, res) => {
         .then((paciente) => { res.status(201).json(paciente) })
         .catch((error) => { res.status(400).json(error) })
 })
-
 
 export default ruta;

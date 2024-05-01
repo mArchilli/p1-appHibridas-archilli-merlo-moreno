@@ -10,15 +10,20 @@ async function getPacienteById(id){
     return paciente;
 }
 
-async function getPacienteByName(nombre){
-    let pacientes = await Paciente.find();
-    let pacientesPorNombre = [];
-    for (const paciente of pacientes) {
-        if(paciente.nombre.includes(nombre)){
-            pacientesPorNombre.push(paciente)
-        }
-    }
-    return pacientesPorNombre;
+async function getPacienteByName(nombreRecibido){
+    let pacientes = await Paciente.find({ nombre: { $regex: new RegExp(nombreRecibido, 'i') } });
+    return pacientes;
+}
+
+async function getPacientesOrdenados() {
+    return await Paciente.find().sort({ nombre: 1 }); 
+}
+
+async function getPacientesPaginados(){
+    let pacientes = await Paciente.find()
+    .limit(5).
+    skip(5);
+    return pacientes;
 }
 
 async function deletePaciente(id){
