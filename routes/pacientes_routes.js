@@ -1,6 +1,5 @@
 import express from "express"
 import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados } from "../controllers/pacientes_controller.js";
-import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente } from "../controllers/pacientes_controller.js";
 import Joi from "joi";
 
 const ruta = express.Router();
@@ -52,10 +51,17 @@ ruta.get("/:id", (req, res) => {
 
 ruta.post("/", (req, res) => {
     let body = req.body;
-    let resultado = createPaciente(body);
-    resultado
-    .then((paciente) => { res.status(200).json(paciente)})
-    .catch((error) => { res.status(404).json(error)})
+
+    const {error, value} = schema.validate({nombre: body.nombre, correo: body.correo})
+
+    if(!error){
+        let resultado = createPaciente(body);
+        resultado
+            .then((paciente) => { res.status(201).json(paciente)})
+            .catch((error) => { res.status(404).json(error)})
+    }else{
+        res.status(400).json(error)
+    }
 })
 
 ruta.put("/:id", (req, res) => {

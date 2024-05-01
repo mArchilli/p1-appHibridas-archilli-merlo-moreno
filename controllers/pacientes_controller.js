@@ -73,4 +73,4 @@ async function updatePaciente(id, body){
     return pacienteActualizado;
 }
 
-export {getPacientes, getPacienteById, getPacienteByName,createPaciente, updatePaciente, deletePaciente}
+export {getPacientes, getPacienteById, getPacienteByName,createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados}
