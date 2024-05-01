@@ -1,5 +1,5 @@
 import express from "express"
-import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados } from "../controllers/pacientes_controller.js";
+import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados, getPacientesCobertMedica, getPacientesGenero } from "../controllers/pacientes_controller.js";
 import Joi from "joi";
 
 const ruta = express.Router();
@@ -37,6 +37,20 @@ ruta.get("/ordenamiento", (req, res) => {
 
 ruta.get("/paginacion", (req, res) => {
     let resultado = getPacientesPaginados();
+    resultado
+    .then((pacientes) => { res.status(200).json(pacientes)})
+    .catch((error) => { res.status(404).json(error)})
+})
+
+ruta.get("/cobertura_medica/:cobertura_medica", (req, res) => {
+    let resultado = getPacientesCobertMedica(req.params.cobertura_medica);
+    resultado
+    .then((pacientes) => { res.status(200).json(pacientes)})
+    .catch((error) => { res.status(404).json(error)})
+})
+
+ruta.get("/generos/:genero", (req, res) => {
+    let resultado = getPacientesGenero(req.params.genero);
     resultado
     .then((pacientes) => { res.status(200).json(pacientes)})
     .catch((error) => { res.status(404).json(error)})

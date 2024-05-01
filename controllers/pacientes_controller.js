@@ -26,6 +26,16 @@ async function getPacientesPaginados(){
     return pacientes;
 }
 
+async function getPacientesCobertMedica(coberturaRecibida){
+    let pacientes = await Paciente.find({ cobertura_medica: { $regex: new RegExp(coberturaRecibida, 'i') } });
+    return pacientes;
+}
+
+async function getPacientesGenero(generoRecibido){
+    let pacientes = await Paciente.find({ genero: { $regex: new RegExp(generoRecibido, 'i') } });
+    return pacientes;
+}
+
 async function deletePaciente(id){
     let paciente = await Paciente.findByIdAndDelete(id);
     return paciente;
@@ -73,4 +83,4 @@ async function updatePaciente(id, body){
     return pacienteActualizado;
 }
 
-export {getPacientes, getPacienteById, getPacienteByName,createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados}
+export {getPacientes, getPacienteById, getPacienteByName,createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados, getPacientesCobertMedica, getPacientesGenero}
