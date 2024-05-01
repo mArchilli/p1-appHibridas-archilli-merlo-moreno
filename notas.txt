@@ -34,3 +34,33 @@ PUT localhost:3000/pacientes/dni
 
 ## TO DO:
 - Función para actualizar pacientes no funciona. [✓]
+
+
+TEXTO PARA index
+¡Bienvenido a la API de Gestión de Pacientes!
+
+Nuestra API permite gestionar y obtener información sobre pacientes y sus datos asociados. Con ella, puedes realizar diversas operaciones, como obtener información de pacientes individuales, listar todos los pacientes, obtener resultados paginados y ordenados, e incluso acceder a las sesiones relacionadas con cada paciente.
+
+Características Clave
+Información de Pacientes: Puedes obtener detalles completos de cada paciente, como nombre, fecha de nacimiento, número de teléfono, dirección y más.
+Listar Todos los Pacientes: La API permite obtener todos los pacientes registrados en el sistema.
+Ordenar Pacientes: Puedes ordenar los resultados por diferentes campos, como nombre, edad, o cualquier otro campo relevante.
+Paginación: Para facilitar la navegación y reducir la carga, puedes obtener resultados paginados. Esto es útil para trabajar con grandes conjuntos de datos.
+Sesiones de Pacientes: Además de los datos básicos de los pacientes, la API permite acceder a información sobre sesiones asociadas a cada paciente.
+Endpoints Disponibles
+Aquí hay algunos de los principales endpoints que puedes usar:
+
+GET /pacientes: Obtiene todos los pacientes. Puedes aplicar ordenamiento y paginación para obtener los resultados de manera más controlada.
+GET /pacientes/:id: Obtiene información de un paciente específico por su ID.
+GET /pacientes/:nombre: Obtiene pacientes por su nombre (con búsqueda parcial).
+GET /pacientes/:id/sesiones: Obtiene las sesiones asociadas a un paciente dado su ID.
+Ejemplos de Uso
+Traer Todos los Pacientes: Haz una solicitud GET a /pacientes para obtener la lista completa de pacientes. Puedes agregar parámetros para paginación y ordenamiento.
+Obtener Paciente por ID: Haz una solicitud GET a /pacientes/:id para obtener detalles de un paciente específico.
+Traer Pacientes por Nombre: Haz una solicitud GET a /pacientes/:nombre para buscar pacientes por su nombre.
+Traer Sesiones de Pacientes: Haz una solicitud GET a /pacientes/:id/sesiones para obtener información sobre las sesiones asociadas a un paciente específico.
+Notas y Consideraciones
+Validación de Datos: Asegúrate de proporcionar datos correctos y completos al realizar solicitudes. La API utiliza validaciones para garantizar la precisión y seguridad de los datos.
+Autenticación y Autorización: Si tu API requiere autenticación o autorización, asegúrate de tener las credenciales correctas antes de realizar solicitudes.
+Seguridad: Ten en cuenta la seguridad y la privacidad de los datos de pacientes. Cumple con las leyes y regulaciones aplicables al trabajar con información confidencial.
+Esperamos que esta introducción te ayude a entender las capacidades de nuestra API de Gestión de Pacientes. Si tienes preguntas o necesitas más información sobre cómo utilizar la API, estamos aquí para ayudar. ¡Feliz programación!
