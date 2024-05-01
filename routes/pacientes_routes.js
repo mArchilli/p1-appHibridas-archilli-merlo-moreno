@@ -1,7 +1,19 @@
 import express from "express"
 import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados } from "../controllers/pacientes_controller.js";
+import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente } from "../controllers/pacientes_controller.js";
+import Joi from "joi";
 
 const ruta = express.Router();
+
+const schema = Joi.object({
+    nombre: Joi.string()
+                .alphanum()
+                .min(3)
+                .max(20)
+                .required(),
+    correo: Joi.string()
+    .email({minDomainSegments: 2, tlds: {allow: ['com', 'ar']}})
+})
 
 ruta.get("/", (req, res) => {
     let resultado = getPacientes();
