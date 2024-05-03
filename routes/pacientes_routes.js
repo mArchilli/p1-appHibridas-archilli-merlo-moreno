@@ -1,6 +1,7 @@
 import express from "express"
 import { getPacientes, getPacienteById , getPacienteByName, createPaciente, updatePaciente, deletePaciente, getPacientesOrdenados, getPacientesPaginados, getPacientesCobertMedica, getPacientesGenero } from "../controllers/pacientes_controller.js";
 import Joi from "joi";
+import authenticateToken from "../middleware/auth.js";
 
 const ruta = express.Router();
 
@@ -54,7 +55,7 @@ const schema = Joi.object({
             .max(20),
 })
 
-ruta.get("/", (req, res) => {
+ruta.get("/", authenticateToken, (req, res) => {
     let resultado = getPacientes();
     resultado
     .then((pacientes) => { res.status(200).json(pacientes)})

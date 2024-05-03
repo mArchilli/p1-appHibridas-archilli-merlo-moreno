@@ -1,9 +1,10 @@
 import express from "express"
 import { getSesiones, getSesionById, createSesion, updateSesion, deleteSesion} from "../controllers/sesiones_controller.js";
+import authenticateToken from "../middleware/auth.js";
 
 const ruta = express.Router();
 
-ruta.get("/", (req, res) => {
+ruta.get("/",authenticateToken, (req, res) => {
     let resultado = getSesiones();
     resultado
     .then((sesiones) => { res.status(200).json(sesiones)})
