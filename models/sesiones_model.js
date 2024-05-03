@@ -13,10 +13,11 @@ const sesionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    paciente:{
-        type: String,
+    paciente:{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'pacientes',
         required: true
-    },
+        },
     profesional:{
         type: String,
         required: true

@@ -18,9 +18,8 @@ ruta.get("/:id", (req, res) => {
     .catch((error) => { res.status(404).json(error)})
 })
 
-ruta.post("/", (req, res) => {
-    let body = req.body;
-    let resultado = createSesion(body);
+ruta.post("/:id", (req, res) => {
+    let resultado = createSesion(req);
     resultado
     .then((sesion) => { res.status(201).json(sesion)})
     .catch((error) => { res.status(404).json(error)})

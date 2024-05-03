@@ -15,15 +15,15 @@ async function deleteSesion(id){
     return sesion;
 }
 
-async function createSesion(body){
+async function createSesion(req){
     let sesion = new Sesion({
-    fecha: body.fecha,
-    horario: body.horario,
-    paciente: body.paciente,
-    profesional: body.profesional,
-    duracion: body.duracion,
-    modalidad: body.modalidad,
-    ubicacion: body.ubicacion
+    fecha: req.body.fecha,
+    horario: req.body.horario,
+    paciente: req.params.id,
+    profesional: req.body.profesional,
+    duracion: req.body.duracion,
+    modalidad: req.body.modalidad,
+    ubicacion: req.body.ubicacion
    })
     return await sesion.save()
 }
