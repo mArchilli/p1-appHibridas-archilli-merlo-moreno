@@ -12,6 +12,23 @@
 }
 
 .banner{
-    height: 40vh;
-    background-color: rgb(217, 194, 239);
+    height: 50vh;
+    /* background-color: rgb(217, 194, 239); */
+    background-image: url(imgs/banner-home.jpg);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed; 
+}
+
+.h2Banner{
+    color: white;
+}
+
+.tituloH1{
+    background-image: url("imgs/psicare-logo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 70px;
 }
