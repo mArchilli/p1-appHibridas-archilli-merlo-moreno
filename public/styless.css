@@ -1,0 +1,17 @@
+*{
+    font-family: 'Montserrat';
+    padding: 0px;
+}
+
+.violet{
+    color: rgb(91, 154, 209);
+}   
+
+.w-icons{
+    width: 40px;
+}
+
+.banner{
+    height: 40vh;
+    background-color: rgb(217, 194, 239);
+}
