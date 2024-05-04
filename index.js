@@ -5,7 +5,7 @@ import pacientes_routes from "./routes/pacientes_routes.js"
 import sesiones_routes from "./routes/sesiones_routes.js"
 
 mongoose
-  .connect(process.env.MONGO_DEPLOY)
+  .connect(process.env.CONNECT)
   .then(() => console.log("conectado a DB"))
   .catch(() => console.log("error al conectar"))
 
